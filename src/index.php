@@ -74,7 +74,7 @@ if ($action === 'webhook') {
 // Login / Logout
 if ($action === 'login') { 
     require __DIR__.'/views/layout.php'; 
-    view_login($csrf_token); 
+    view_login(); 
     exit; 
 }
 

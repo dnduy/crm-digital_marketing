@@ -94,7 +94,12 @@ function h($s){ return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8'); }
 if (!isset($_SESSION['csrf'])) { $_SESSION['csrf'] = bin2hex(random_bytes(16)); }
 $csrf_token = $_SESSION['csrf'];
 function csrf_field(){ echo '<input type="hidden" name="csrf" value="'.h($_SESSION['csrf']).'">'; }
-function require_csrf(){ if (($_POST['csrf'] ?? '') !== ($_SESSION['csrf'] ?? '')) { http_response_code(403); die('CSRF token không hợp lệ'); } }
+function require_csrf(){ 
+    if (($_POST['csrf'] ?? '') !== ($_SESSION['csrf'] ?? '')) { 
+        http_response_code(403); 
+        die('CSRF token không hợp lệ'); 
+    } 
+}
 
 // Settings helpers
 function setting_get($k,$def=null){ global $db; $v=q($db,"SELECT v FROM settings WHERE k=?",[$k])->fetchColumn(); return ($v===false)?$def:$v; }
