@@ -130,6 +130,30 @@ case 'reports':
     require __DIR__.'/views/reports.php'; 
     view_reports(); 
     break;
+case 'content': 
+    require __DIR__.'/views/content.php'; 
+    view_content($op); 
+    break;
+case 'keywords': 
+    require __DIR__.'/views/keywords.php'; 
+    view_keywords($op); 
+    break;
+case 'analytics': 
+    require __DIR__.'/views/analytics.php'; 
+    view_analytics($op); 
+    break;
+case 'ab_testing': 
+    require __DIR__.'/views/ab_testing.php'; 
+    view_ab_testing($op); 
+    break;
+case 'roi_calculator': 
+    require __DIR__.'/views/roi_calculator.php'; 
+    view_roi_calculator($op); 
+    break;
+case 'social_media':
+    require __DIR__.'/views/social_media.php'; 
+    view_social_media($op); 
+    break;
 default:
     layout_header('Không tìm thấy');
     echo '<div class="card">Không tìm thấy trang yêu cầu</div>';

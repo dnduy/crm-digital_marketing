@@ -8,8 +8,23 @@ echo '<title>'.h($title).'</title>';
 echo '<style>:root{--bg:#0f172a;--panel:#111827;--muted:#1f2937;--text:#e5e7eb;--accent:#4f46e5;--accent2:#22d3ee}*{box-sizing:border-box}body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text)}a{color:#93c5fd;text-decoration:none}a:hover{text-decoration:underline}.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{background:var(--panel);border-right:1px solid var(--muted);padding:12px}.brand{display:flex;gap:8px;align-items:center;font-weight:700;margin-bottom:12px}.pill{padding:2px 8px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));font-size:12px;color:#fff}.nav a{display:block;padding:8px 10px;border-radius:8px;color:#cbd5e1}.nav a.active,.nav a:hover{background:#0b1220;color:#fff}.main{display:grid;grid-template-rows:auto 1fr}.toolbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--muted);background:linear-gradient(180deg,#0b1220,#0a101c)}.container{padding:16px}.card{background:#0b1220;border:1px solid var(--muted);border-radius:12px;padding:14px;margin-bottom:12px}.grid{display:grid;gap:12px}.grid.cols-3{grid-template-columns:repeat(3,1fr)}.btn{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}.btn.secondary{background:#111827;border:1px solid var(--muted)}input,select,textarea{width:100%;background:#0a0f1a;border:1px solid var(--muted);border-radius:8px;padding:8px 10px;color:#e5e7eb}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid var(--muted);padding:8px 6px;text-align:left}.kpi{font-size:22px;font-weight:800}.hint{font-size:12px;opacity:.8}</style>';
 echo '</head><body><div class="layout"><aside class="sidebar">';
 echo '<div class="brand"><span class="pill">DM CRM</span> <span>CRM Marketing Số</span></div><div class="nav">';
-$items=['dashboard'=>'Bảng điều khiển','contacts'=>'Liên hệ','deals'=>'Giao dịch','activities'=>'Hoạt động','campaigns'=>'Chiến dịch','tasks'=>'Công việc','reports'=>'Báo cáo','users'=>'Người dùng'];
+$items=['dashboard'=>'Bảng điều khiển','contacts'=>'Liên hệ','deals'=>'Giao dịch','activities'=>'Hoạt động','campaigns'=>'Chiến dịch','tasks'=>'Công việc','reports'=>'Báo cáo'];
 $current=$_GET['action']??'dashboard'; foreach($items as $k=>$v){ $cls=$current===$k?'active':''; echo '<a class="'.$cls.'" href="?action='.$k.'">'.$v.'</a>'; }
+echo '<hr style="border-color:var(--muted);opacity:.2;margin:8px 0">';
+echo '<div style="font-size:11px;color:#94a3b8;margin:4px 0">ANALYTICS</div>';
+$analytics_items=['analytics'=>'📊 Attribution','ab_testing'=>'🧪 A/B Testing','roi_calculator'=>'💰 ROI Calculator'];
+foreach($analytics_items as $k=>$v){ $cls=$current===$k?'active':''; echo '<a class="'.$cls.'" href="?action='.$k.'">'.$v.'</a>'; }
+echo '<hr style="border-color:var(--muted);opacity:.2;margin:8px 0">';
+echo '<div style="font-size:11px;color:#94a3b8;margin:4px 0">SEO & CONTENT</div>';
+$seo_items=['content'=>'📝 Content SEO','keywords'=>'🔍 Từ khóa'];
+foreach($seo_items as $k=>$v){ $cls=$current===$k?'active':''; echo '<a class="'.$cls.'" href="?action='.$k.'">'.$v.'</a>'; }
+echo '<hr style="border-color:var(--muted);opacity:.2;margin:8px 0">';
+echo '<div style="font-size:11px;color:#94a3b8;margin:4px 0">SOCIAL MEDIA</div>';
+$social_items=['social_media'=>'🚀 Social Management'];
+foreach($social_items as $k=>$v){ $cls=$current===$k?'active':''; echo '<a class="'.$cls.'" href="?action='.$k.'">'.$v.'</a>'; }
+echo '<hr style="border-color:var(--muted);opacity:.2;margin:8px 0">';
+$admin_items=['users'=>'👥 Người dùng'];
+foreach($admin_items as $k=>$v){ $cls=$current===$k?'active':''; echo '<a class="'.$cls.'" href="?action='.$k.'">'.$v.'</a>'; }
 echo '<hr style="border-color:var(--muted);opacity:.3">';
 echo '<div class="hint">'.h($_SESSION['uname']??'').' ('.h($_SESSION['role']??'').')</div>';
 echo '<a class="btn secondary" href="?action=logout">Đăng xuất</a>';

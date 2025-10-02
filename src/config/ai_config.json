@@ -1,0 +1,76 @@
+{
+  "providers": {
+    "openai": {
+      "enabled": false,
+      "api_key": "",
+      "model": "gpt-4",
+      "max_tokens": 4096,
+      "temperature": 0.7,
+      "timeout": 60,
+      "retry_attempts": 3
+    },
+    "claude": {
+      "enabled": false,
+      "api_key": "",
+      "model": "claude-3-sonnet-20240229",
+      "max_tokens": 4000,
+      "temperature": 0.7,
+      "timeout": 60,
+      "retry_attempts": 3
+    },
+    "gemini": {
+      "enabled": false,
+      "api_key": "",
+      "model": "gemini-pro",
+      "max_tokens": 8192,
+      "temperature": 0.7,
+      "timeout": 60,
+      "retry_attempts": 3
+    }
+  },
+  "features": {
+    "auto_provider_selection": true,
+    "load_balancing": true,
+    "retry_on_failure": true,
+    "usage_tracking": true,
+    "cost_monitoring": true,
+    "quality_scoring": true,
+    "content_caching": true,
+    "rate_limiting": true
+  },
+  "content_generation": {
+    "default_language": "vi",
+    "default_tone": "professional",
+    "max_content_length": 5000,
+    "enable_seo_optimization": true,
+    "enable_sentiment_analysis": true,
+    "auto_social_media_generation": true
+  },
+  "quality_control": {
+    "minimum_content_length": 50,
+    "profanity_filter": true,
+    "fact_checking": false,
+    "originality_check": true,
+    "brand_voice_consistency": true
+  },
+  "rate_limits": {
+    "requests_per_minute": 60,
+    "requests_per_hour": 1000,
+    "requests_per_day": 10000,
+    "concurrent_requests": 5
+  },
+  "caching": {
+    "enabled": true,
+    "ttl": 3600,
+    "max_cache_size": 1000,
+    "cache_similar_prompts": true,
+    "similarity_threshold": 0.85
+  },
+  "monitoring": {
+    "log_all_requests": true,
+    "performance_tracking": true,
+    "error_tracking": true,
+    "cost_alerts": true,
+    "usage_reports": true
+  }
+}

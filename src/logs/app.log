@@ -1,0 +1,6 @@
+[2025-10-02 08:57:56] ERROR: Migration failed: 2025_10_02_120000_create_content_pages_table {"error":"SQLSTATE[HY000]: General error: 1 table content_pages already exists"}
+[2025-10-02 08:59:12] INFO: Migration created: 2025_10_02_085912_create_social_media_posts_table_new.php
+[2025-10-02 08:59:44] INFO: Migration executed: 2025_10_02_085912_create_social_media_posts_table_new
+[2025-10-02 08:59:44] ERROR: Migration failed: 2025_10_02_120000_create_content_pages_table {"error":"SQLSTATE[HY000]: General error: 1 table content_pages already exists"}
+[2025-10-02 09:08:28] ERROR: Migration failed: 2025_10_02_120000_create_content_pages_table {"error":"SQLSTATE[HY000]: General error: 1 table content_pages already exists"}
+[2025-10-02 09:16:12] INFO: Migration created: 2025_10_02_091612_add_analytics_columns_to_content.php

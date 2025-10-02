@@ -1,0 +1,121 @@
+{
+    "providers": {
+        "openai": {
+            "api_key": "YOUR_OPENAI_API_KEY_HERE",
+            "model": "gpt-4o-mini",
+            "endpoint": "https://api.openai.com/v1/chat/completions",
+            "max_tokens": 4096,
+            "temperature": 0.7,
+            "timeout": 30,
+            "rate_limit": 3000,
+            "cost_per_1k_tokens": 0.03,
+            "capabilities": ["general", "coding", "analysis", "creative"],
+            "supported_languages": ["en", "vi", "zh", "ja", "ko", "fr", "de"],
+            "priority_score": 85
+        },
+        "claude": {
+            "api_key": "YOUR_ANTHROPIC_API_KEY_HERE",
+            "model": "claude-3-5-sonnet-20241022",
+            "endpoint": "https://api.anthropic.com/v1/messages",
+            "max_tokens": 100000,
+            "temperature": 0.7,
+            "timeout": 45,
+            "rate_limit": 1000,
+            "cost_per_1k_tokens": 0.025,
+            "capabilities": ["analysis", "writing", "reasoning", "safety"],
+            "supported_languages": ["en", "vi", "zh", "ja", "fr", "de"],
+            "priority_score": 90
+        },
+        "gemini": {
+            "api_key": "YOUR_GOOGLE_API_KEY_HERE",
+            "model": "gemini-1.5-pro",
+            "endpoint": "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent",
+            "max_tokens": 32768,
+            "temperature": 0.7,
+            "timeout": 30,
+            "rate_limit": 60,
+            "cost_per_1k_tokens": 0.002,
+            "capabilities": ["multimodal", "reasoning", "coding", "factual"],
+            "supported_languages": ["en", "vi", "zh", "ja", "ko", "hi", "th", "id"],
+            "priority_score": 75,
+            "safety_settings": [
+                {
+                    "category": "HARM_CATEGORY_HARASSMENT",
+                    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+                },
+                {
+                    "category": "HARM_CATEGORY_HATE_SPEECH",
+                    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+                },
+                {
+                    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+                },
+                {
+                    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
+                }
+            ]
+        }
+    },
+    "features": {
+        "auto_provider_selection": true,
+        "load_balancing": true,
+        "retry_on_failure": true,
+        "fallback_enabled": true,
+        "usage_tracking": true,
+        "cost_monitoring": true,
+        "quality_scoring": true,
+        "cache_responses": true
+    },
+    "quality": {
+        "min_score_threshold": 60,
+        "preferred_grade": "B",
+        "readability_target": "intermediate",
+        "seo_optimization": true,
+        "sentiment_analysis": true,
+        "keyword_density_check": true
+    },
+    "load_balancing": {
+        "strategy": "capability_based",
+        "task_mapping": {
+            "general": ["openai", "claude", "gemini"],
+            "content_generation": ["claude", "openai", "gemini"],
+            "social_media": ["gemini", "openai", "claude"],
+            "seo_optimization": ["openai", "gemini", "claude"],
+            "sentiment_analysis": ["claude", "gemini", "openai"],
+            "creative_writing": ["claude", "openai", "gemini"],
+            "technical_analysis": ["openai", "claude", "gemini"],
+            "multimodal": ["gemini", "openai", "claude"]
+        },
+        "health_check_interval": 300,
+        "failure_threshold": 3,
+        "recovery_timeout": 900
+    },
+    "monitoring": {
+        "track_usage": true,
+        "log_requests": true,
+        "cost_alerts": {
+            "daily_limit": 50.00,
+            "monthly_limit": 1000.00,
+            "alert_threshold": 0.8
+        },
+        "performance_metrics": {
+            "response_time_threshold": 5000,
+            "success_rate_threshold": 0.95,
+            "quality_score_threshold": 70
+        }
+    },
+    "cache": {
+        "enabled": true,
+        "ttl": 3600,
+        "max_size": 1000,
+        "cache_key_strategy": "content_hash"
+    },
+    "fallback": {
+        "enabled": true,
+        "fallback_order": ["openai", "claude", "gemini"],
+        "max_retries": 3,
+        "retry_delay": 2
+    }
+}
