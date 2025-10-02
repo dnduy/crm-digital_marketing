@@ -1,0 +1,4 @@
+﻿name,channel,budget,spent,status,start_date,end_date,notes
+Campaign Google Ads Q4,google,5000000,2500000,Active,2025-10-01,2025-12-31,Test campaign for Q4
+Campaign Facebook Lead,facebook,3000000,1800000,Active,2025-10-01,2025-11-30,Lead generation campaign
+Campaign TikTok Video,tiktok,2000000,800000,Paused,2025-09-15,2025-10-15,Video marketing campaign

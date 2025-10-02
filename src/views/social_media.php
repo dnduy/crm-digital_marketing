@@ -210,10 +210,10 @@ function renderSocialMediaDashboard($db, $socialManager) {
     $stats = q($db, "
         SELECT 
             COUNT(*) as total_posts,
-            SUM(likes_count) as total_likes,
-            SUM(comments_count) as total_comments,
-            SUM(shares_count) as total_shares,
-            COUNT(DISTINCT account_id) as connected_accounts
+            SUM(p.likes_count) as total_likes,
+            SUM(p.comments_count) as total_comments,
+            SUM(p.shares_count) as total_shares,
+            COUNT(DISTINCT p.account_id) as connected_accounts
         FROM social_media_posts p
         JOIN social_media_accounts a ON a.id = p.account_id
         WHERE p.post_status = 'published' AND p.created_at >= date('now', '-30 days')
