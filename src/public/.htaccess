@@ -1,0 +1,11 @@
+<?php
+// ==========================
+// (TÙY CHỌN) FILE: /public/.htaccess — nếu deploy dưới Apache DocumentRoot là /public
+// ==========================
+/*
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+*/
+?>

@@ -1,0 +1,1 @@
+echo '<?php echo "<h1>Docker PHP Project is running on macOS!</h1>"; phpinfo(); ?>' > src/index.php
