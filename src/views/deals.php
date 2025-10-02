@@ -76,7 +76,7 @@ if ($op==='new' || $op==='edit'){
     echo '<div><label>Trạng thái</label><select name="stage">';
     foreach(['New','Qualified','Proposal','Won','Lost'] as $st){ 
         $sel=$d['stage']===$st?'selected':''; 
-        echo '<option '.$sel.'>'.$st.'</option>'; 
+        echo '<option '.h($sel).' value="'.h($st).'">'.h($st).'</option>'; 
     } 
     echo '</select></div>';
     echo '<div><label>Kênh</label><input name="channel" placeholder="google-2025-q4-brand" value="'.h($d['channel']).'"></div>';

@@ -12,7 +12,7 @@ if ($op==='new'){
 $contacts = q($db, "SELECT id,name FROM contacts ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 echo '<div class="card"><h3>Ghi hoạt động</h3><form method="post" action="?action=activities&op=create">'; csrf_field();
 echo '<div class="grid cols-3">';
-echo '<div><label>Liên hệ</label><select name="contact_id"><option value="">—</option>'; foreach($contacts as $c){ $sel=(($_GET['contact_id']??'')==$c['id'])?'selected':''; echo '<option '.$sel.' value="'.$c['id'].'">'.h($c['name']).'</option>'; } echo '</select></div>';
+echo '<div><label>Liên hệ</label><select name="contact_id"><option value="">—</option>'; foreach($contacts as $c){ $sel=(($_GET['contact_id']??'')==$c['id'])?'selected':''; echo '<option '.h($sel).' value="'.h($c['id']).'">'.h($c['name']).'</option>'; } echo '</select></div>';
 echo '<div><label>Loại</label><select name="type">'; foreach(['note','call','meeting','email'] as $t){ echo '<option>'.$t.'</option>'; } echo '</select></div>';
 echo '<div><label>Thời gian</label><input name="at" type="datetime-local"></div>';
 echo '</div><div><label>Nội dung</label><textarea name="content" rows="4" placeholder="Ghi chú..."></textarea></div>';

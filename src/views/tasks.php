@@ -15,10 +15,10 @@ if ($op==='edit') $t = q($db, "SELECT * FROM tasks WHERE id=?", [(int)$_GET['id'
 $contacts = q($db, "SELECT id,name FROM contacts ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 echo '<div class="card"><h3>'.($op==='new'?'Thêm công việc':'Sửa công việc').'</h3><form method="post" action="?action=tasks&op='.($op==='new'?'create':'update').'">'; csrf_field(); if ($op==='edit') echo '<input type="hidden" name="id" value="'.h($t['id']).'">';
 echo '<div class="grid cols-3">';
-echo '<div><label>Liên hệ</label><select name="contact_id"><option value="">—</option>'; foreach($contacts as $c){ $sel=$t['contact_id']==$c['id']?'selected':''; echo '<option '.$sel.' value="'.$c['id'].'">'.h($c['name']).'</option>'; } echo '</select></div>';
+echo '<div><label>Liên hệ</label><select name="contact_id"><option value="">—</option>'; foreach($contacts as $c){ $sel=$t['contact_id']==$c['id']?'selected':''; echo '<option '.h($sel).' value="'.h($c['id']).'">'.h($c['name']).'</option>'; } echo '</select></div>';
 echo '<div><label>Tiêu đề</label><input name="title" required value="'.h($t['title']).'"></div>';
 echo '<div><label>Hạn</label><input name="due_date" type="date" value="'.h($t['due_date']).'"></div>';
-echo '<div><label>Trạng thái</label><select name="status">'; foreach(['Open','In Progress','Done'] as $st){ $sel=$t['status']===$st?'selected':''; echo '<option '.$sel.'>'.$st.'</option>'; } echo '</select></div>';
+echo '<div><label>Trạng thái</label><select name="status">'; foreach(['Open','In Progress','Done'] as $st){ $sel=$t['status']===$st?'selected':''; echo '<option '.h($sel).' value="'.h($st).'">'.h($st).'</option>'; } echo '</select></div>';
 echo '<div><label>Phụ trách</label><input name="owner" value="'.h($t['owner']).'"></div>';
 echo '</div><div style="margin-top:12px"><button class="btn">Lưu</button> <a class="btn secondary" href="?action=tasks">Huỷ</a></div></form></div>';
 }

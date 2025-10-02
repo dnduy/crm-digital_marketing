@@ -15,10 +15,10 @@ if ($op==='edit') $c = q($db, "SELECT * FROM campaigns WHERE id=?", [(int)$_GET[
 echo '<div class="card"><h3>'.($op==='new'?'Thêm chiến dịch':'Sửa chiến dịch').'</h3><form method="post" action="?action=campaigns&op='.($op==='new'?'create':'update').'">'; csrf_field(); if ($op==='edit') echo '<input type="hidden" name="id" value="'.h($c['id']).'">';
 echo '<div class="grid cols-3">';
 echo '<div><label>Tên</label><input name="name" required value="'.h($c['name']).'"></div>';
-echo '<div><label>Kênh</label><select name="channel">'; foreach(['google','facebook','tiktok','email','seo'] as $ch){ $sel=$c['channel']===$ch?'selected':''; echo '<option '.$sel.'>'.$ch.'</option>'; } echo '</select></div>';
+echo '<div><label>Kênh</label><select name="channel">'; foreach(['google','facebook','tiktok','email','seo'] as $ch){ $sel=$c['channel']===$ch?'selected':''; echo '<option '.h($sel).' value="'.h($ch).'">'.h($ch).'</option>'; } echo '</select></div>';
 echo '<div><label>Ngân sách</label><input name="budget" type="number" step="0.01" value="'.h($c['budget']).'"></div>';
 echo '<div><label>Đã chi</label><input name="spent" type="number" step="0.01" value="'.h($c['spent']).'"></div>';
-echo '<div><label>Trạng thái</label><select name="status">'; foreach(['Active','Paused','Completed'] as $st){ $sel=$c['status']===$st?'selected':''; echo '<option '.$sel.'>'.$st.'</option>'; } echo '</select></div>';
+echo '<div><label>Trạng thái</label><select name="status">'; foreach(['Active','Paused','Completed'] as $st){ $sel=$c['status']===$st?'selected':''; echo '<option '.h($sel).' value="'.h($st).'">'.h($st).'</option>'; } echo '</select></div>';
 echo '<div><label>Bắt đầu</label><input name="start_date" type="date" value="'.h($c['start_date']).'"></div>';
 echo '<div><label>Kết thúc</label><input name="end_date" type="date" value="'.h($c['end_date']).'"></div>';
 echo '</div><div><label>Ghi chú</label><textarea name="notes" rows="3">'.h($c['notes']).'</textarea></div>';
