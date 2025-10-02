@@ -10,6 +10,9 @@ require __DIR__.'/lib/auth.php';
 $action = $_GET['action'] ?? 'dashboard';
 $op = $_GET['op'] ?? '';
 
+// Initialize CSRF token
+$csrf_token = csrf_token();
+
 
 // API (read-only) — có thể dùng trước khi login nếu cần public
 if ($action === 'api') {
@@ -49,7 +52,7 @@ switch ($action) {
 case 'dashboard': require __DIR__.'/views/dashboard.php'; view_dashboard(); break;
 case 'contacts': require __DIR__.'/views/contacts.php'; view_contacts($op); break;
 case 'deals': require __DIR__.'/views/deals.php'; view_deals($op); break;
-case 'activities': require __DIR__.'/views/activities.php';view_activities($op); break;
+case 'activities': require __DIR__.'/views/activities.php'; view_activities($op); break;
 case 'campaigns': require __DIR__.'/views/campaigns.php'; view_campaigns($op); break;
 case 'tasks': require __DIR__.'/views/tasks.php'; view_tasks($op); break;
 case 'reports': require __DIR__.'/views/reports.php'; view_reports(); break;
